@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewmodel="clr-namespace:CoronaVirus.ViewModel"
+             x:Class="CoronaVirus.View.MainPage">
+    <ContentPage.BindingContext>
+        <viewmodel:VirusViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="5,5,5,5">
+            <Frame BorderColor="#E4E5E6" CornerRadius="10" HorizontalOptions="Center" HeightRequest="20">
+                <SearchBar HorizontalOptions="Center" Placeholder="Search" HeightRequest="10"/>
+            </Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Country Name" TextColor="Black" FontFamily="Bold" Grid.Column="0" Grid.Row="0"/>
+                <Label Text="Total Case" TextColor="Black" FontFamily="Bold" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="New Case" TextColor="Black" FontFamily="Bold" Grid.Column="2" Grid.Row="0"/>
+            </Grid>
+            <ListView ItemsSource="{Binding InfoViruses}"
+                  HasUnevenRows="True"
+                  BackgroundColor="#E4E5E6">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Country}" MaxLines="3" FontSize="Large" TextColor="Black" FontFamily="Bold" Grid.Column="0" Grid.Row="0"/>
+                                <BoxView BackgroundColor="#00416A" Grid.Column="1" Grid.Row="0"/>
+                                <Label HorizontalTextAlignment="Center" Text="{Binding Cases}" FontSize="Large" TextColor="Black" FontFamily="Bold" Grid.Column="2" Grid.Row="0"/>
+                                <BoxView BackgroundColor="#00416A" Grid.Column="3" Grid.Row="0"/>
+                                <Label HorizontalTextAlignment="Center" Text="{Binding TodayCases}" FontSize="Large" TextColor="Black" FontFamily="Bold" Grid.Column="4" Grid.Row="0"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

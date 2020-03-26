@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Overview"
+             IconImageSource="overview.png"
+             xmlns:viewmodel="clr-namespace:CoronaVirus.ViewModel"
+             x:Class="CoronaVirus.View.OverviewPage">
+    <ContentPage.BindingContext>
+        <viewmodel:VirusViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label HorizontalOptions="CenterAndExpand"  
+                   TextColor="Black"
+                   FontFamily="30"
+                   Margin="0,20,0,40"
+                   Text="{Binding Summaryy.datetime,StringFormat='COVID-19 CORONAVIRUS OUTBREAK {0:F0}'}"/>
+            <Frame HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center">
+                <StackLayout Padding="20">
+                    <Label Text="Total Confirmed" TextColor="#b92b27" FontSize="Medium"/>
+                    <Label HorizontalTextAlignment="Center" Text="{Binding Summaryy.cases}" TextColor="#b92b27" FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
+            <Frame HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center">
+                <StackLayout Padding="20">
+                    <Label Text="Total Recovered" TextColor="#1f4037" FontSize="Medium"/>
+                    <Label HorizontalTextAlignment="Center" Text="{Binding Summaryy.recovered}" TextColor="#1f4037" FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+                
+            </Frame>
+            <Frame HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center">
+                <StackLayout Padding="20">
+                    <Label Text="Total Death" TextColor="#bdc3c7" FontSize="Medium"/>
+                    <Label HorizontalTextAlignment="Center" Text="{Binding Summaryy.deaths}" TextColor="#1f4037" FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewmodel="clr-namespace:CoronaVirus.ViewModel"
+             Title="Analytics" IconImageSource="analystic.png"
+             x:Class="CoronaVirus.View.AnalysticPage">
+    <ContentPage.BindingContext>
+        <viewmodel:VirusViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Margin="10,0,10,0">
+            <Label HorizontalOptions="CenterAndExpand"
+                   Text="{Binding InfoVirus.Country}" 
+                   HorizontalTextAlignment="Center"
+                   TextColor="#1CB5E0"
+                   FontAttributes="Bold"
+                   FontSize="45"/>
+            <Frame>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Cases" 
+                               TextColor="#12c2e9" 
+                               FontSize="Large" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                    <Label Text="{Binding InfoVirus.Cases}"
+                               TextColor="#12c2e9" 
+                               FontSize="40" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
+            <Grid Margin="10,10,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Frame Grid.Column="0" Grid.Row="0">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Active" 
+                               TextColor="#c471ed" 
+                               FontSize="Large" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding InfoVirus.Active}"
+                               TextColor="#c471ed" 
+                               FontSize="40" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1" Grid.Row="0">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Critical" 
+                               TextColor="#FF8C00" 
+                               FontSize="Large" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding InfoVirus.Critical}"
+                               TextColor="#FF8C00" 
+                               FontSize="40" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="0" Grid.Row="1">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Today Cases" 
+                               TextColor="#40E0D0" 
+                               FontSize="Large" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding InfoVirus.TodayCases}"
+                               TextColor="#40E0D0" 
+                               FontSize="40" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1" Grid.Row="1">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Today Deaths" 
+                               TextColor="#f4791f" 
+                               FontSize="Large" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding InfoVirus.TodayDeaths}"
+                               TextColor="#f4791f" 
+                               FontSize="40" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="0" Grid.Row="2">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Recovered" 
+                               TextColor="#009FFF" 
+                               FontSize="Large" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding InfoVirus.Recovered}"
+                               TextColor="#009FFF" 
+                               FontSize="40" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1" Grid.Row="2">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Deaths" 
+                               TextColor="#f64f59" 
+                               FontSize="Large" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding InfoVirus.Deaths}"
+                               TextColor="#f64f59" 
+                               FontSize="40" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

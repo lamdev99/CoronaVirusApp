@@ -12,11 +12,16 @@ namespace CoronaVirus
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new MainTabbedPane();
 		}
 
 		protected override void OnStart()
 		{
+			RestApi restApi = new RestApi();
+			restApi.GetInfoViruses();
+			restApi.GetSummary();
+			base.OnStart();
+
 			
 		}
 

@@ -17,10 +17,10 @@ namespace CoronaVirus.Model
         public Object Id { get; set; }
 
         [JsonProperty("lat")]
-        public long? Lat { get; set; }
+        public double Lat { get; set; }
 
         [JsonProperty("long")]
-        public long? Long { get; set; }
+        public double Long { get; set; }
 
         [JsonProperty("flag")]
         public string Flag { get; set; }
